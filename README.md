@@ -1,0 +1,1 @@
+# Regatta Scoring iOS/iPadOS
