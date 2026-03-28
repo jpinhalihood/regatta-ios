@@ -1,14 +1,12 @@
-
 import SwiftUI
+import SwiftData
 
 @main
 struct RegattaApp: App {
-    @StateObject private var viewModel = RegattaViewModel()
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
         }
+        .modelContainer(for: Regatta.self)
     }
 }
