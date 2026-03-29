@@ -25,6 +25,9 @@ struct ContentView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showingAddRegatta) {
+                CreateRegattaView()
+            }
         } detail: {
             Text("Select a Regatta")
         }
