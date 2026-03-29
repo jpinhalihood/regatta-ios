@@ -2,31 +2,47 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = RegattaViewModel()
-    @State private var selectedRegatta: String?
+    @EnvironmentObject var viewModel: RegattaViewModel
+    @State private var showingCreateRegattaSheet = false
 
     var body: some View {
-        NavigationSplitView {
-            List(selection: $selectedRegatta) {
-                ForEach(viewModel.regattas, id: \.self) { regatta in
-                    NavigationLink(value: regatta) {
-                        Text(regatta)
+        NavigationView {
+            List {
+                ForEach(viewModel.regattas) { regatta in
+                    NavigationLink {
+                        RegattaDetailView(regatta: regatta)
+                    } label: {
+                        Text(regatta.name)
                     }
                 }
             }
             .navigationTitle("Regattas")
-        } detail: {
-            if let selectedRegatta = selectedRegatta {
-                Text("Details for \(selectedRegatta)")
-                // Here you would navigate to a ScoringGridView or similar
-                // For now, a placeholder
-            } else {
-                Text("Select a Regatta")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingCreateRegattaSheet = true
+                    } label: {
+                        Label("Add Regatta", systemImage: "plus.circle.fill")
+                    }
+                }
+            }
+            .sheet(isPresented: $showingCreateRegattaSheet) {
+                CreateRegattaView()
+                    .environmentObject(viewModel)
+            }
+            .overlay {
+                if viewModel.regattas.isEmpty {
+                    Text("No regattas created yet. Tap + to add one!")
+                        .foregroundColor(.gray)
+                }
             }
         }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(RegattaViewModel())
+    }
 }
