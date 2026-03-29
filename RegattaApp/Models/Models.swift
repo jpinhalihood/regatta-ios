@@ -73,3 +73,40 @@ final class RaceFinish {
         self.isDNS = isDNS
     }
 }
+
+@Model
+final class GlobalBoat {
+    var id: UUID
+    var sailNumber: String
+    var name: String
+    var makeModel: String
+    var phrf: Int
+
+    init(id: UUID = UUID(), sailNumber: String, name: String, makeModel: String, phrf: Int) {
+        self.id = id
+        self.sailNumber = sailNumber
+        self.name = name
+        self.makeModel = makeModel
+        self.phrf = phrf
+    }
+}
+
+@Model
+final class RaceFinish {
+    var id: UUID
+    var position: Int
+    var isDNC: Bool
+    var isDNF: Bool
+    var isDNS: Bool
+    
+    var boat: Boat?
+    var race: Race?
+    
+    init(id: UUID = UUID(), position: Int, isDNC: Bool = false, isDNF: Bool = false, isDNS: Bool = false) {
+        self.id = id
+        self.position = position
+        self.isDNC = isDNC
+        self.isDNF = isDNF
+        self.isDNS = isDNS
+    }
+}

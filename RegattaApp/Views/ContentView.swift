@@ -10,12 +10,18 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(regattas) { regatta in
-                    NavigationLink(regatta.name) {
-                        RegattaDetailView(regatta: regatta)
-                    }
+                NavigationLink("Global Boat Directory") { // New navigation link
+                    GlobalBoatDirectoryView()
                 }
-                .onDelete(perform: deleteItems)
+                
+                Section("Regattas") { // Wrap existing regattas in a section
+                    ForEach(regattas) { regatta in
+                        NavigationLink(regatta.name) {
+                            RegattaDetailView(regatta: regatta)
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
             }
             .navigationTitle("Regattas")
             .toolbar {
@@ -53,12 +59,12 @@ struct RegattaDetailView: View {
     var body: some View {
         VStack {
             Text(regatta.location)
-            Text("Throwouts: \(regatta.throwouts)")
+            Text("Throwouts: \\(regatta.throwouts)")
             
             List {
                 Section("Boats") {
                     ForEach(regatta.boats) { boat in
-                        Text("\(boat.sailNumber) - \(boat.name)")
+                        Text("\\(boat.sailNumber) - \\(boat.name)")
                     }
                     .onDelete(perform: deleteBoat)
                 }
@@ -66,7 +72,7 @@ struct RegattaDetailView: View {
                 Section("Races") {
                     ForEach(regatta.races.sorted { $0.raceNumber < $1.raceNumber }) { race in
                         VStack(alignment: .leading) {
-                            Text("Race \(race.raceNumber)")
+                            Text("Race \\(race.raceNumber)")
                                 .font(.headline)
                             
                             // Display finishes for this race
@@ -78,7 +84,7 @@ struct RegattaDetailView: View {
                                 ForEach(race.finishes.sorted { $0.position < $1.position }) { finish in
                                     HStack {
                                         let sailNumber = finish.boat?.sailNumber ?? "N/A"
-                                        Text("\(sailNumber) - Pos: \(finish.position)")
+                                        Text("\\(sailNumber) - Pos: \\(finish.position)")
                                         if finish.isDNC { Text("(DNC)") }
                                         if finish.isDNF { Text("(DNF)") }
                                         if finish.isDNS { Text("(DNS)") }
@@ -87,7 +93,7 @@ struct RegattaDetailView: View {
                                 }
                             }
                             
-                            Button("Add Finish to Race \(race.raceNumber)") {
+                            Button("Add Finish to Race \\(race.raceNumber)") {
                                 showingAddRaceFinishSheetForRace = race
                             }
                             .buttonStyle(.borderless)
@@ -108,7 +114,7 @@ struct RegattaDetailView: View {
                             HStack {
                                 Text(result.boatName)
                                 Spacer()
-                                Text("Net: \(result.netScore) (Total: \(result.totalScore))")
+                                Text("Net: \\(result.netScore) (Total: \\(result.totalScore))")
                             }
                         }
                     }
