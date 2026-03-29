@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F11F37F2F78C2D70072B633 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F36D2F78C2D70072B633 /* Models.swift */; };
+		1F11F3802F78C2D70072B633 /* CreateRegattaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F37B2F78C2D70072B633 /* CreateRegattaView.swift */; };
+		1F11F3812F78C2D70072B633 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F37A2F78C2D70072B633 /* ContentView.swift */; };
+		1F11F3822F78C2D70072B633 /* RegattaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F36E2F78C2D70072B633 /* RegattaModels.swift */; };
+		1F11F3832F78C2D70072B633 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F3762F78C2D70072B633 /* ContentView.swift */; };
+		1F11F3842F78C2D70072B633 /* ScoringEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F3722F78C2D70072B633 /* ScoringEngine.swift */; };
+		1F11F3852F78C2D70072B633 /* RegattaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F37D2F78C2D70072B633 /* RegattaDetailView.swift */; };
+		1F11F3862F78C2D70072B633 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F3702F78C2D70072B633 /* NetworkManager.swift */; };
+		1F11F3872F78C2D70072B633 /* RegattaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F3742F78C2D70072B633 /* RegattaViewModel.swift */; };
+		1F11F3882F78C2D70072B633 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F3782F78C2D70072B633 /* App.swift */; };
+		1F11F3892F78C2D70072B633 /* RegattaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11F37C2F78C2D70072B633 /* RegattaApp.swift */; };
+		1F11F38A2F78C2D70072B633 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11F3792F78C2D70072B633 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F11F36D2F78C2D70072B633 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1F11F36E2F78C2D70072B633 /* RegattaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegattaModels.swift; sourceTree = "<group>"; };
+		1F11F3702F78C2D70072B633 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1F11F3722F78C2D70072B633 /* ScoringEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringEngine.swift; sourceTree = "<group>"; };
+		1F11F3742F78C2D70072B633 /* RegattaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegattaViewModel.swift; sourceTree = "<group>"; };
+		1F11F3762F78C2D70072B633 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1F11F3782F78C2D70072B633 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		1F11F3792F78C2D70072B633 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F11F37A2F78C2D70072B633 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1F11F37B2F78C2D70072B633 /* CreateRegattaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRegattaView.swift; sourceTree = "<group>"; };
+		1F11F37C2F78C2D70072B633 /* RegattaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegattaApp.swift; sourceTree = "<group>"; };
+		1F11F37D2F78C2D70072B633 /* RegattaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegattaDetailView.swift; sourceTree = "<group>"; };
+		1FDFBF9E2F78BDD3002BFC54 /* regatta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = regatta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FDFBF9B2F78BDD3002BFC54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F11F36F2F78C2D70072B633 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F11F36D2F78C2D70072B633 /* Models.swift */,
+				1F11F36E2F78C2D70072B633 /* RegattaModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F11F3712F78C2D70072B633 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1F11F3702F78C2D70072B633 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1F11F3732F78C2D70072B633 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				1F11F3722F78C2D70072B633 /* ScoringEngine.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
+		1F11F3752F78C2D70072B633 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1F11F3742F78C2D70072B633 /* RegattaViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1F11F3772F78C2D70072B633 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F11F3762F78C2D70072B633 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1F11F37E2F78C2D70072B633 /* RegattaApp */ = {
+			isa = PBXGroup;
+			children = (
+				1F11F36F2F78C2D70072B633 /* Models */,
+				1F11F3712F78C2D70072B633 /* Networking */,
+				1F11F3732F78C2D70072B633 /* Scoring */,
+				1F11F3752F78C2D70072B633 /* ViewModels */,
+				1F11F3772F78C2D70072B633 /* Views */,
+				1F11F3782F78C2D70072B633 /* App.swift */,
+				1F11F3792F78C2D70072B633 /* Assets.xcassets */,
+				1F11F37A2F78C2D70072B633 /* ContentView.swift */,
+				1F11F37B2F78C2D70072B633 /* CreateRegattaView.swift */,
+				1F11F37C2F78C2D70072B633 /* RegattaApp.swift */,
+				1F11F37D2F78C2D70072B633 /* RegattaDetailView.swift */,
+			);
+			path = RegattaApp;
+			sourceTree = "<group>";
+		};
+		1FDFBF952F78BDD3002BFC54 = {
+			isa = PBXGroup;
+			children = (
+				1F11F37E2F78C2D70072B633 /* RegattaApp */,
+				1FDFBF9F2F78BDD3002BFC54 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1FDFBF9F2F78BDD3002BFC54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FDFBF9E2F78BDD3002BFC54 /* regatta.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FDFBF9D2F78BDD3002BFC54 /* regatta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FDFBFA92F78BDD5002BFC54 /* Build configuration list for PBXNativeTarget "regatta" */;
+			buildPhases = (
+				1FDFBF9A2F78BDD3002BFC54 /* Sources */,
+				1FDFBF9B2F78BDD3002BFC54 /* Frameworks */,
+				1FDFBF9C2F78BDD3002BFC54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = regatta;
+			packageProductDependencies = (
+			);
+			productName = regatta;
+			productReference = 1FDFBF9E2F78BDD3002BFC54 /* regatta.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FDFBF962F78BDD3002BFC54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					1FDFBF9D2F78BDD3002BFC54 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = 1FDFBF992F78BDD3002BFC54 /* Build configuration list for PBXProject "regatta" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FDFBF952F78BDD3002BFC54;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1FDFBF9F2F78BDD3002BFC54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FDFBF9D2F78BDD3002BFC54 /* regatta */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FDFBF9C2F78BDD3002BFC54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F11F38A2F78C2D70072B633 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FDFBF9A2F78BDD3002BFC54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F11F37F2F78C2D70072B633 /* Models.swift in Sources */,
+				1F11F3802F78C2D70072B633 /* CreateRegattaView.swift in Sources */,
+				1F11F3812F78C2D70072B633 /* ContentView.swift in Sources */,
+				1F11F3822F78C2D70072B633 /* RegattaModels.swift in Sources */,
+				1F11F3832F78C2D70072B633 /* ContentView.swift in Sources */,
+				1F11F3842F78C2D70072B633 /* ScoringEngine.swift in Sources */,
+				1F11F3852F78C2D70072B633 /* RegattaDetailView.swift in Sources */,
+				1F11F3862F78C2D70072B633 /* NetworkManager.swift in Sources */,
+				1F11F3872F78C2D70072B633 /* RegattaViewModel.swift in Sources */,
+				1F11F3882F78C2D70072B633 /* App.swift in Sources */,
+				1F11F3892F78C2D70072B633 /* RegattaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1FDFBFA72F78BDD5002BFC54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7Z846DXC8Q;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1FDFBFA82F78BDD5002BFC54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7Z846DXC8Q;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		1FDFBFAA2F78BDD5002BFC54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7Z846DXC8Q;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.jeffprice.regatta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		1FDFBFAB2F78BDD5002BFC54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7Z846DXC8Q;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.jeffprice.regatta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FDFBF992F78BDD3002BFC54 /* Build configuration list for PBXProject "regatta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDFBFA72F78BDD5002BFC54 /* Debug */,
+				1FDFBFA82F78BDD5002BFC54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FDFBFA92F78BDD5002BFC54 /* Build configuration list for PBXNativeTarget "regatta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDFBFAA2F78BDD5002BFC54 /* Debug */,
+				1FDFBFAB2F78BDD5002BFC54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FDFBF962F78BDD3002BFC54 /* Project object */;
+}
