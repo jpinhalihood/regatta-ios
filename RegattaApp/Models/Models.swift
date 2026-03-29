@@ -43,14 +43,16 @@ final class Boat {
 final class Race {
     var id: UUID
     var raceNumber: Int
+    var startTime: Date?
     var regatta: Regatta?
     
     @Relationship(deleteRule: .cascade)
     var finishes: [RaceFinish] = []
     
-    init(id: UUID = UUID(), raceNumber: Int) {
+    init(id: UUID = UUID(), raceNumber: Int, startTime: Date? = nil) {
         self.id = id
         self.raceNumber = raceNumber
+        self.startTime = startTime
     }
 }
 
@@ -61,52 +63,19 @@ final class RaceFinish {
     var isDNC: Bool
     var isDNF: Bool
     var isDNS: Bool
+    var elapsedTime: TimeInterval?
     
     var boat: Boat?
     var race: Race?
     
-    init(id: UUID = UUID(), position: Int, isDNC: Bool = false, isDNF: Bool = false, isDNS: Bool = false) {
+    init(id: UUID = UUID(), position: Int, isDNC: Bool = false, isDNF: Bool = false, isDNS: Bool = false, elapsedTime: TimeInterval? = nil) {
         self.id = id
         self.position = position
         self.isDNC = isDNC
         self.isDNF = isDNF
         self.isDNS = isDNS
+        self.elapsedTime = elapsedTime
     }
 }
 
-@Model
-final class GlobalBoat {
-    var id: UUID
-    var sailNumber: String
-    var name: String
-    var makeModel: String
-    var phrf: Int
 
-    init(id: UUID = UUID(), sailNumber: String, name: String, makeModel: String, phrf: Int) {
-        self.id = id
-        self.sailNumber = sailNumber
-        self.name = name
-        self.makeModel = makeModel
-        self.phrf = phrf
-    }
-}
-
-@Model
-final class RaceFinish {
-    var id: UUID
-    var position: Int
-    var isDNC: Bool
-    var isDNF: Bool
-    var isDNS: Bool
-    
-    var boat: Boat?
-    var race: Race?
-    
-    init(id: UUID = UUID(), position: Int, isDNC: Bool = false, isDNF: Bool = false, isDNS: Bool = false) {
-        self.id = id
-        self.position = position
-        self.isDNC = isDNC
-        self.isDNF = isDNF
-        self.isDNS = isDNS
-    }
-}

@@ -54,7 +54,6 @@ struct RegattaDetailView: View {
     
     @State private var showingAddBoatSheet = false
     @State private var showingAddRaceSheet = false
-    @State private var showingAddRaceFinishSheetForRace: Race? = nil // Holds the race for which we want to add a finish
     
     var body: some View {
         VStack {
@@ -71,35 +70,37 @@ struct RegattaDetailView: View {
                 
                 Section("Races") {
                     ForEach(regatta.races.sorted { $0.raceNumber < $1.raceNumber }) { race in
-                        VStack(alignment: .leading) {
-                            Text("Race \\(race.raceNumber)")
-                                .font(.headline)
-                            
-                            // Display finishes for this race
-                            if race.finishes.isEmpty {
-                                Text("No finishes recorded.")
-                                    .font(.caption)
-                                    .foregroundStyle(.gray)
-                            } else {
-                                ForEach(race.finishes.sorted { $0.position < $1.position }) { finish in
-                                    HStack {
-                                        let sailNumber = finish.boat?.sailNumber ?? "N/A"
-                                        Text("\\(sailNumber) - Pos: \\(finish.position)")
-                                        if finish.isDNC { Text("(DNC)") }
-                                        if finish.isDNF { Text("(DNF)") }
-                                        if finish.isDNS { Text("(DNS)") }
+                        NavigationLink(destination: ActiveRaceView(race: race, regatta: regatta)) {
+                            VStack(alignment: .leading) {
+                                Text("Race \(race.raceNumber)")
+                                    .font(.headline)
+                                
+                                // Display finishes for this race
+                                if race.finishes.isEmpty {
+                                    Text("No finishes recorded.")
+                                        .font(.caption)
+                                        .foregroundStyle(.gray)
+                                } else {
+                                    ForEach(race.finishes.sorted { $0.position < $1.position }) { finish in
+                                        HStack {
+                                            let sailNumber = finish.boat?.sailNumber ?? "N/A"
+                                            Text("\(sailNumber) - Pos: \(finish.position)")
+                                            if finish.isDNC { Text("(DNC)") }
+                                            if finish.isDNF { Text("(DNF)") }
+                                            if finish.isDNS { Text("(DNS)") }
+                                        }
+                                        .font(.caption)
                                     }
-                                    .font(.caption)
                                 }
                             }
-                            
-                            Button("Add Finish to Race \\(race.raceNumber)") {
-                                showingAddRaceFinishSheetForRace = race
-                            }
-                            .buttonStyle(.borderless)
-                            .font(.caption)
-                            .padding(.vertical, 4)
                         }
+                        // Removing the Add Finish button as it will be handled in ActiveRaceView
+                        // Button("Add Finish to Race \(race.raceNumber)") {
+                        //     showingAddRaceFinishSheetForRace = race
+                        // }
+                        // .buttonStyle(.borderless)
+                        // .font(.caption)
+                        // .padding(.vertical, 4)
                     }
                     .onDelete(perform: deleteRace)
                 }
@@ -141,9 +142,6 @@ struct RegattaDetailView: View {
         }
         .sheet(isPresented: $showingAddRaceSheet) {
             CreateRaceView(regatta: regatta)
-        }
-        .sheet(item: $showingAddRaceFinishSheetForRace) { race in
-            AddRaceFinishView(regatta: regatta, race: race)
         }
     }
     
