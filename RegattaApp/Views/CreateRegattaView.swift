@@ -1,16 +1,16 @@
-
 import SwiftUI
+import SwiftData
 
 struct CreateRegattaView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: RegattaViewModel
+    @Environment(\.modelContext) private var modelContext
 
     @State private var name: String = ""
     @State private var location: String = ""
     @State private var throwouts: Int = 0
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section(header: Text("Regatta Details")) {
                     TextField("Regatta Name", text: $name)
@@ -30,19 +30,13 @@ struct CreateRegattaView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        viewModel.addRegatta(name: name, location: location, throwouts: throwouts)
+                        let newRegatta = Regatta(name: name, location: location, throwouts: throwouts)
+                        modelContext.insert(newRegatta)
                         dismiss()
                     }
                     .disabled(name.isEmpty || location.isEmpty)
                 }
             }
         }
-    }
-}
-
-struct CreateRegattaView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateRegattaView()
-            .environmentObject(RegattaViewModel())
     }
 }
