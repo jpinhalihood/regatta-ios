@@ -77,7 +77,8 @@ struct RegattaDetailView: View {
                             } else {
                                 ForEach(race.finishes.sorted { $0.position < $1.position }) { finish in
                                     HStack {
-                                        Text("\(finish.boat?.sailNumber ?? "N/A") - Pos: \(finish.position)")
+                                        let sailNumber = finish.boat?.sailNumber ?? "N/A"
+                                        Text("\(sailNumber) - Pos: \(finish.position)")
                                         if finish.isDNC { Text("(DNC)") }
                                         if finish.isDNF { Text("(DNF)") }
                                         if finish.isDNS { Text("(DNS)") }
