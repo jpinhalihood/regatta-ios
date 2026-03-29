@@ -3,39 +3,92 @@ import Foundation
 import SwiftUI
 
 class RegattaViewModel: ObservableObject {
-    @Published var regattas: [String] = ["Spring Regatta 2026", "Summer Series Race 1", "Fall Classic"]
+    @Published var regattas: [Regatta] = [] {
+        didSet {
+            saveRegattas()
+        }
+    }
     @Published var isLoading = false
     @Published var errorMessage: String? // For error handling
 
+    private let userDefaultsKey = "regattasData"
+
     init() {
-        // Load initial data or perform setup
+        loadRegattas()
     }
 
-    func fetchRegattas() {
-        isLoading = true
-        // Simulate a network call
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.regattas = ["Spring Regatta 2026", "Summer Series Race 1", "Fall Classic", "Winter Warmup"]
-            self.isLoading = false
+    // MARK: - Persistence
+
+    private func saveRegattas() {
+        if let encoded = try? JSONEncoder().encode(regattas) {
+            UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
         }
     }
-    
-    // Example of sending a score (integrate with NetworkManager)
-    func submitScore(boat: Boat, finishTime: Date) {
+
+    private func loadRegattas() {
+        if let savedRegattas = UserDefaults.standard.data(forKey: userDefaultsKey) {
+            if let decodedRegattas = try? JSONDecoder().decode([Regatta].self, from: savedRegattas) {
+                self.regattas = decodedRegattas
+                return
+            }
+        }
+        self.regattas = [] // Default empty state if no saved data
+    }
+
+    // MARK: - Regatta Management
+
+    func addRegatta(name: String, location: String, throwouts: Int) {
+        let newRegatta = Regatta(name: name, location: location, throwouts: throwouts)
+        regattas.append(newRegatta)
+    }
+
+    func addBoat(to regatta: Regatta, sailNumber: String, name: String) {
+        guard let index = regattas.firstIndex(where: { $0.id == regatta.id }) else { return }
+        let newBoat = Boat(sailNumber: sailNumber, name: name)
+        regattas[index].boats.append(newBoat)
+    }
+
+    func addRace(to regatta: Regatta) {
+        guard let index = regattas.firstIndex(where: { $0.id == regatta.id }) else { return }
+        let newRaceNumber = (regattas[index].races.max(by: { $0.raceNumber < $1.raceNumber })?.raceNumber ?? 0) + 1
+        let newRace = Race(raceNumber: newRaceNumber)
+        regattas[index].races.append(newRace)
+    }
+
+    func addRaceFinish(to regatta: Regatta, race: Race, boatId: UUID, position: Int) {
+        guard let regattaIndex = regattas.firstIndex(where: { $0.id == regatta.id }) else { return }
+        guard let raceIndex = regattas[regattaIndex].races.firstIndex(where: { $0.id == race.id }) else { return }
+        
+        let newFinish = RaceFinish(boatId: boatId, position: position)
+        regattas[regattaIndex].races[raceIndex].finishes.append(newFinish)
+        
+        // Trigger scoring after a race finish is added
+        sendRegattaScore(for: regattas[regattaIndex])
+    }
+
+    // MARK: - Networking
+
+    func sendRegattaScore(for regatta: Regatta) {
         isLoading = true
-        let raceFinish = RaceFinish(boat: boat, finishTime: finishTime, correctedTime: nil)
-        NetworkManager.shared.sendScore(raceFinish: raceFinish) { result in
+        errorMessage = nil
+
+        NetworkManager.shared.sendScoreRequest(regattaId: regatta.id, boats: regatta.boats, races: regatta.races, throwouts: regatta.throwouts) { [weak self] result in
             DispatchQueue.main.async {
-                self.isLoading = false
+                self?.isLoading = false
                 switch result {
-                case .success(let scoreResult):
-                    print("Score submitted: \(scoreResult)")
-                    // Handle success, e.g., update UI
+                case .success(let scoreResults):
+                    self?.updateScoredResults(for: regatta, with: scoreResults)
+                    print("Score results received: \(scoreResults)")
                 case .failure(let error):
-                    self.errorMessage = error.localizedDescription
+                    self?.errorMessage = error.localizedDescription
                     print("Error submitting score: \(error.localizedDescription)")
                 }
             }
         }
+    }
+
+    private func updateScoredResults(for regatta: Regatta, with newScores: [ScoreResult]) {
+        guard let index = regattas.firstIndex(where: { $0.id == regatta.id }) else { return }
+        regattas[index].scoredResults = newScores
     }
 }
